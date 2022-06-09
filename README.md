@@ -10,7 +10,7 @@ Projeto de inicio de estudo de react
 
 # Instalação
 
--git clone https://github.com/jakeliny/crush-management.git
+-git clone git@github.com:brunosuza/ListaPresenca.git
 -npm install
 
 # Para rodar o objeto
