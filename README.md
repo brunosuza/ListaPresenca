@@ -10,7 +10,7 @@ Projeto de inicio de estudo de react
 
 # Instalação
 
--git clone git@github.com:brunosuza/ListaPresenca.git
+<p>-git clone git@github.com:brunosuza/ListaPresenca.git</p>
 -npm install
 
 # Para rodar o objeto
