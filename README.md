@@ -4,8 +4,8 @@ Projeto de inicio de estudo de react
 
 # O que foi usado no projeto
 
--<p>Usado vite para criação do projeto</p>
--<p>Google fonts</p>
+<p>-Usado vite para criação do projeto</p>
+<p>-Google fonts</p>
 -Consumo da API do Github
 
 # Instalação
