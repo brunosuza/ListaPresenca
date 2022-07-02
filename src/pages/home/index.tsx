@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { Card } from '../../components/card/';
+import { Card, CardProps } from '../../components/card/';
+
+type ProfileResponse = {
+  name: string;
+  avatar_url: string;
+}
+
+type User = {
+  name: string;
+  avatar_url: string;
+}
 
 export function Home() {
 
   const [studentName, setStudentName] = useState();
-  const [students, setStudents] = useState([]);
-  const [user, setUser] = useState({ name: '', avatar: ''});
+  const [students, setStudents] = useState<CardProps[]>([]);
+  const [user, setUser] = useState<User>({} as User);
 
   function handleAddStudent() {
     const newStudent = {
@@ -26,10 +36,10 @@ export function Home() {
     // o useEffect é executado assim que nossa interface é renderizada, executado automáticamente
     async function fetchData() {
       const response = await fetch('https://api.github.com/users/brunosuza')
-      const data = await response.json();
+      const data = await response.json() as ProfileResponse;
       setUser({
         name: data.name,
-        avatar: data.avatar_url,
+        avatar_url: data.avatar_url,
       });
     }
 
@@ -42,7 +52,7 @@ export function Home() {
         <h1>Lista de presença</h1>
         <div>
           <strong>{user.name}</strong>
-          <img src={user.avatar} alt="" />
+          <img src={user.avatar_url} alt="" />
         </div>
       </header>
       <input 
@@ -51,11 +61,9 @@ export function Home() {
         onChange={e => setStudentName(e.target.value)}
       />
       <button type="button" onClick={handleAddStudent}>Adicionar</button>
-
       {
         students.map(student => <Card key={student.time} name={student.name} time={student.time} />)
       }
-      
     </div>
   )
 }
